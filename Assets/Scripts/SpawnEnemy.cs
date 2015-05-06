@@ -16,7 +16,7 @@ public class SpawnEnemy : MonoBehaviour {
 	{
 		if (Random.Range (0,4) < 1)
 		{
-			Instantiate(ufo, SpawnEnemy.position, Quaternion.identity);
+			//Instantiate(ufo, SpawnEnemy.position, Quaternion.identity);
 		}
 
 	}
