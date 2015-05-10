@@ -30,6 +30,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &147872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 416168}
+  m_Layer: 12
+  m_Name: FlameSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &149024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 419444}
+  m_Layer: 12
+  m_Name: UFOSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &169510
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +88,6 @@ GameObject:
   - 61: {fileID: 6115190}
   - 114: {fileID: 11484236}
   - 50: {fileID: 5057108}
-  - 114: {fileID: 11402138}
   - 114: {fileID: 11427634}
   m_Layer: 12
   m_Name: Ground
@@ -79,6 +108,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 476790}
   m_RootOrder: 1
+--- !u!4 &416168
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.449999988, y: 1.10000002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476790}
+  m_RootOrder: 3
+--- !u!4 &419444
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.38999987, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476790}
+  m_RootOrder: 4
 --- !u!4 &443518
 Transform:
   m_ObjectHideFlags: 1
@@ -110,12 +163,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children:
   - {fileID: 472438}
   - {fileID: 405512}
   - {fileID: 443518}
+  - {fileID: 416168}
+  - {fileID: 419444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2395490
@@ -177,18 +232,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11402138
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6de8ab5cf30ab43841702a7bf8b37e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
 --- !u!114 &11427634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +248,10 @@ MonoBehaviour:
   - {fileID: 405512}
   - {fileID: 443518}
   coin: {fileID: 158150, guid: 72a189202b5acda41bc61f368d5c5965, type: 2}
+  FlameSpawn: {fileID: 416168}
+  UFOSpawn: {fileID: 419444}
+  flame: {fileID: 100000, guid: 4c5736ea0764d49c3a6adc2250d33f0f, type: 2}
+  ufo: {fileID: 100006, guid: 66fe2da2077f94183ae003dde85a8b1a, type: 2}
 --- !u!114 &11484236
 MonoBehaviour:
   m_ObjectHideFlags: 1

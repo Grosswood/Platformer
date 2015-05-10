@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SimplePlatformController : MonoBehaviour {
@@ -9,6 +10,8 @@ public class SimplePlatformController : MonoBehaviour {
 	public float maxSpeed = 5f;
 	public float jumpForce = 1000f;
 	public Transform groundCheck;
+	public Text coinsLabel;
+	public int coins = 0;
 		
 	private bool grounded = false;
 	private Animator anim;
@@ -17,6 +20,7 @@ public class SimplePlatformController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
+		jump = false;
 		anim = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
 	}
@@ -25,11 +29,13 @@ public class SimplePlatformController : MonoBehaviour {
 	void Update () 
 	{
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-		
-		if (Input.GetButtonDown("Jump") && grounded)
+
+		if ((Input.GetButtonDown("Jump") || (Input.GetKeyDown ("w"))) && grounded)
 		{
 			jump = true;
 		}
+		if (Input.GetKey("escape"))
+			Application.LoadLevel("MenuScene");
 	}
 	
 	void FixedUpdate()
@@ -65,4 +71,22 @@ public class SimplePlatformController : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		//Tag "Crate" is on Coins
+		if (other.gameObject.CompareTag ("Crate"))
+		{
+			coins++;
+			if (PlayerPrefs.GetInt("highScore") < coins)
+			{
+				PlayerPrefs.SetInt("highScore", coins);
+				PlayerPrefs.Save();
+			}
+			coinsLabel.text = coins.ToString();
+		}
+		
+	}
+
+
 }
